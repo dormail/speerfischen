@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include "speerfischen.h"
 
+#define PI 3.14159265
+
 coordinate *calc_path_given_y(coordinate *origin, double y_end, double angle)
 {
 	coordinate *end = (coordinate *) malloc(sizeof(coordinate));
@@ -12,6 +14,18 @@ coordinate *calc_path_given_y(coordinate *origin, double y_end, double angle)
 
 	return end;
 }
+
+coordinate *calc_path_given_x(coordinate *origin, double x_end, double angle)
+{
+	coordinate *end = (coordinate *) malloc(sizeof(coordinate));
+	angle = PI/2 - angle;
+
+	end->x = x_end;
+	end->y = origin->x + tan(angle) * (origin->x - x_end);
+	
+	return end;
+}
+
 
 //coordinate *calc_path_given_x(coordinate *origin, double x_end, double angle);
 
@@ -36,12 +50,13 @@ int main()
 	x0->x = dist;
 	x0->y = -1. * depth;
 
-	x1 = calc_path_given_y(x0, 0, 0.1);
-	printf("%e\n", x1->x);
+	x1 = calc_path_given_x(x0, 0.0, 0.0);
+	printf("%e\n", x1->y);
 	
 
 	// free storage
 	free(x0);
+	free(x1);
 
 	return 0;
 }
