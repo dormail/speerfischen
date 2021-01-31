@@ -26,8 +26,12 @@ coordinate *calc_path_given_x(coordinate *origin, double x_end, double angle)
 	return end;
 }
 
-
-//coordinate *calc_path_given_x(coordinate *origin, double x_end, double angle);
+double refraction(double n1, double n2, double angle_orig)
+{
+	if(n2 == 0) return -1;
+	double t2 = asin(sin(angle_orig) * n1 / n2);
+	return t2;
+}
 
 int main()
 {
