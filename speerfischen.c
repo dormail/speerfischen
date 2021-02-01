@@ -57,7 +57,7 @@ double calc_path_a(coordinate *fish, double a)
 }
 
 
-int main()
+int main(int argc, char **argv[])
 {
 	/* variablen
 	 * depth = depth of the fish
@@ -77,8 +77,8 @@ int main()
 	fish->x = dist;
 	fish->y = -1 * depth;
 
-	printf("a, x1, b, y2\n");
-	for(double a = 0.2; a < 0.3; a += 0.01)
+	printf("a,x1,b,y2\n");
+	for(double a = 0.2; a < 0.4; a += 0.001)
 	{
 		printf("%e, ", a);
 		h = calc_path_a(fish, a);
