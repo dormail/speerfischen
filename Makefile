@@ -6,3 +6,6 @@ speerfischen: speerfischen.c speerfischen.h
 
 results-a.csv: speerfischen
 	./speerfischen > results-a.csv
+
+plot.pdf: plot.py results-a.csv
+	python3 plot.py
