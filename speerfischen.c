@@ -33,6 +33,30 @@ double refraction(double n1, double n2, double angle_orig)
 	return t2;
 }
 
+double calc_path_a(coordinate *fish, double a)
+{
+	coordinate *x1 = (coordinate *) malloc(sizeof(coordinate));
+	coordinate *x2 = (coordinate *) malloc(sizeof(coordinate));
+	double b;
+	double n1 = 1.33;
+	double n2 = 1;
+
+	x1 = calc_path_given_y(fish, 0, a);
+	printf("%e\n", x1->x);
+	b = refraction(n1, n2, a);
+	printf("%e\n", b);
+	x2 = calc_path_given_x(x1, 0, b);
+	//printf("%e\n", x2->y);
+
+	double h = x2->y;
+
+	free(x1);
+	free(x2);
+
+	return h;
+}
+
+
 int main()
 {
 	/* variablen
@@ -47,20 +71,15 @@ int main()
 	double n_wasser = 1.33;
 	double n_luft = 1;
 
+	printf("a, x1, b, y2\n");
+	coordinate *fish = (coordinate *) malloc(sizeof(coordinate));
+	fish->x = dist;
+	fish->y = -1 * depth;
 
-	coordinate *x0 = (coordinate *) malloc(sizeof(coordinate));
-	coordinate *x1 = (coordinate *) malloc(sizeof(coordinate));
-	
-	x0->x = dist;
-	x0->y = -1. * depth;
+	double a = calc_path_a(fish, 0.28);
+	printf("%e\n", a);
 
-	x1 = calc_path_given_x(x0, 0.0, 0.0);
-	printf("%e\n", x1->y);
-	
-
-	// free storage
-	free(x0);
-	free(x1);
+	free(fish);
 
 	return 0;
 }
