@@ -42,11 +42,11 @@ double calc_path_a(coordinate *fish, double a)
 	double n2 = 1;
 
 	x1 = calc_path_given_y(fish, 0, a);
-	printf("%e\n", x1->x);
+	printf("%e, ", x1->x);
 	b = refraction(n1, n2, a);
-	printf("%e\n", b);
+	printf("%e, ", b);
 	x2 = calc_path_given_x(x1, 0, b);
-	//printf("%e\n", x2->y);
+	printf("%e\n", x2->y);
 
 	double h = x2->y;
 
@@ -71,13 +71,18 @@ int main()
 	double n_wasser = 1.33;
 	double n_luft = 1;
 
-	printf("a, x1, b, y2\n");
+	double h;
+
 	coordinate *fish = (coordinate *) malloc(sizeof(coordinate));
 	fish->x = dist;
 	fish->y = -1 * depth;
 
-	double a = calc_path_a(fish, 0.28);
-	printf("%e\n", a);
+	printf("a, x1, b, y2\n");
+	for(double a = 0.2; a < 0.3; a += 0.01)
+	{
+		printf("%e, ", a);
+		h = calc_path_a(fish, a);
+	}
 
 	free(fish);
 
