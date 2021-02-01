@@ -21,7 +21,7 @@ coordinate *calc_path_given_x(coordinate *origin, double x_end, double angle)
 	angle = PI/2 - angle;
 
 	end->x = x_end;
-	end->y = origin->x + tan(angle) * (origin->x - x_end);
+	end->y = origin->y + tan(angle) * (origin->x - x_end);
 	
 	return end;
 }
