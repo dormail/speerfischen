@@ -1,8 +1,12 @@
 # plot.py
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib as mpl
+
+mpl.use('pgf')
+
+PI = np.pi
 
 filename = 'results-a.csv'
 df = pd.read_csv(filename)
@@ -27,5 +31,5 @@ print(f'h = {h}')
 
 plt.plot(a, np.abs(y2 - 2))
 plt.xlabel(r'$\alpha$')
-plt.ylabel(r'$(y_2 - h) / $m')
-plt.show()
+plt.ylabel(r'$\vert y_2 - h \vert / $m')
+plt.savefig('plot.pdf')
