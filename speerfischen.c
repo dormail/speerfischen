@@ -56,6 +56,35 @@ double calc_path_a(coordinate *fish, double a)
 	return h;
 }
 
+double calc_path_b(coordinate *fish, double a)
+{
+	coordinate *x1 = (coordinate *) malloc(sizeof(coordinate));
+	coordinate *x2 = (coordinate *) malloc(sizeof(coordinate));
+	coordinate *x3 = (coordinate *) malloc(sizeof(coordinate));
+	double b;
+	double n1 = 1.33;
+	double n2 = 1.1;
+	double n3 = 1;
+
+	x1 = calc_path_given_y(fish, 0, a);
+	printf("%e, ", x1->x);
+	b = refraction(n1, n2, a);
+	printf("%e, ", b);
+	x2 = calc_path_given_y(fish, 0.1, b);
+	b = refraction(n2, n3, b);
+
+	x3 = calc_path_given_x(x1, 0, b);
+	printf("%e\n", x2->y);
+
+	double h = x2->y;
+
+	free(x1);
+	free(x2);
+	free(x3);
+
+	return h;
+}
+
 
 int main(int argc, char **argv[])
 {

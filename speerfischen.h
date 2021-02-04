@@ -17,5 +17,6 @@ double refraction(double n1, double n2, double angle_orig);
  * a = angle the first light path takes
  */
 double calc_path_a(coordinate *fish, double a);
+double calc_path_b(coordinate *fish, double a);
 
 /* speerfischen.h end */
