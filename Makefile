@@ -9,8 +9,8 @@ speerfischen: speerfischen.c speerfischen.h
 results-a.csv: speerfischen
 	./speerfischen > results-a.csv
 
-plot.pdf: plot.py results-a.csv header-matplotlib.tex matplotlibrc
-	TEXINPUTS=$$(pwd): python3 plot.py
+plot-2a.pdf: 2a.py results-a.csv header-matplotlib.tex matplotlibrc
+	TEXINPUTS=$$(pwd): python3 2a.py
 
 plot-2b.pdf: 2b.py results-a.csv header-matplotlib.tex matplotlibrc
 	TEXINPUTS=$$(pwd): python3 2b.py

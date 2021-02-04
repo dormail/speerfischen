@@ -1,4 +1,4 @@
-# plot.py
+# 2a.py
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -32,4 +32,4 @@ print(f'h = {h}')
 plt.plot(a, np.abs(y2 - 2))
 plt.xlabel(r'$\alpha$')
 plt.ylabel(r'$\vert y_2 - h \vert / $m')
-plt.savefig('plot.pdf')
+plt.savefig('plot-2a.pdf')
