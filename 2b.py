@@ -29,7 +29,7 @@ h = (d - t * np.tan(a1) - hp * np.tan(a2) - dh * np.tan(a3)) / np.tan(a3) + hp +
 # looking for a1 that matches h \approx 2
 res = np.abs(h - 2).argmin()
 best_angle = a1[res]
-angle_arrive = a3[res]
+angle_arrive = a2[res]
 print(f'The best angle was found to be {best_angle}.')
 print(f'The light arrives at the fishers eye at angle {angle_arrive}.')
 
@@ -40,7 +40,7 @@ plt.plot(a1, np.abs(h-2),
 plt.plot(a1, np.linspace(2,2),
         color='r',
         label='Eyeheight = 2m')
-plt.title(rf'Plot for light arriving at fishers eyes, $h(\alpha_1 = {best_angle:.2f}) \approx 2$m')
+plt.title(rf'Plot für Höhe des Strahls bei $y=0$ (mit Luftschicht)')
 plt.legend()
 plt.xlabel(r'$\alpha_1$')
 plt.ylabel(r'1/m')

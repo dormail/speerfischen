@@ -26,10 +26,21 @@ alpha = best_angle
 dist = 1
 depth = 1.5
 n_wt = 1.33
-h = (dist - np.sin(alpha) * depth) / np.tan(np.arcsin(n_wt * np.sin(alpha)))
+h = (dist - np.tan(alpha) * depth) / np.tan(np.arcsin(n_wt * np.sin(alpha)))
 print(f'h = {h}')
 
-plt.plot(a, np.abs(y2 - 2))
+plt.plot(a, y2,
+        label=r'$h(\alpha)$')
+plt.plot(np.linspace(0.2, 0.3), np.linspace(2,2),
+        label=r'Augenhöhe des Fischers bei 2m',
+        color='r',
+        ls='--')
+plt.plot(a, np.abs(y2 - 2),
+        label=r'$\vert h(\alpha) - 2\si{m}\vert$')
+
+plt.title(rf'Plot für Höhe des Strahls bei $y=0$ (ohne Luftschicht)')
+
+plt.legend()
 plt.xlabel(r'$\alpha$')
-plt.ylabel(r'$\vert y_2 - h \vert / $m')
+plt.ylabel(r'$1/$m')
 plt.savefig('plot-2a.pdf')

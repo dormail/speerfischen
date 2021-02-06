@@ -1,4 +1,4 @@
-all: plot.pdf plot-2b.pdf
+all: plot-2a.pdf plot-2b.pdf
 
 speerfischen: speerfischen.c speerfischen.h
 	gcc speerfischen.c speerfischen.h \
