@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+from miss import miss
 
 mpl.use('pgf')
 
@@ -28,6 +29,10 @@ depth = 1.5
 n_wt = 1.33
 h = (dist - np.tan(alpha) * depth) / np.tan(np.arcsin(n_wt * np.sin(alpha)))
 print(f'h = {h}')
+
+# calculating miss
+d = miss(angle_arrive)
+print(f'The fisher misses the fish by {d:.4f} m.')
 
 plt.plot(a, y2,
         label=r'$h(\alpha)$')

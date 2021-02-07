@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+from miss import miss
 
 mpl.use('pgf')
 PI = np.pi
@@ -32,6 +33,10 @@ best_angle = a1[res]
 angle_arrive = a2[res]
 print(f'The best angle was found to be {best_angle}.')
 print(f'The light arrives at the fishers eye at angle {angle_arrive}.')
+
+# calculating miss
+d = miss(angle_arrive)
+print(f'The fisher misses the fish by {d:.4f} m.')
 
 plt.plot(a1, h,
         label=r'$h(\alpha_1)$')
